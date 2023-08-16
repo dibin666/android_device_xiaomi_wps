@@ -27,4 +27,3 @@ BOARD_VENDOR_SEPOLICY_DIRS += \
 
 # Inherit the proprietary files
 $(call inherit-product, vendor/xiaomi/wps/wps-vendor.mk)
-include vendor/xiaomi/wps/BoardConfigVendor.mk
