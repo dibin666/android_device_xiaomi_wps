@@ -1,0 +1,14 @@
+# MSLg
+/dev/msl(/.*)?                                           u:object_r:mslg_rootfs_file:s0
+/data/vendor/mslg(/.*)?                                  u:object_r:mslg_rootfs_file:s0
+
+/vendor/bin/start-rootfs.sh                              u:object_r:mslgd_exec:s0
+/vendor/bin/tar-rootfs.sh                                u:object_r:mslgd_exec:s0
+/vendor/bin/losetup.sh                                   u:object_r:mslgd_exec:s0
+/vendor/bin/hw/mslgservice                               u:object_r:mslgd_exec:s0
+
+/vendor/bin/hw/vendor.xiaomi.mslg.keeper@1.0-service     u:object_r:hal_mslgkeeper_default_exec:s0
+
+/vendor/etc/assets(/.*)?                                 u:object_r:vendor_file:s0
+/vendor/etc/assets/mslgoptimg                            u:object_r:vendor_file:s0
+/vendor/etc/assets/mslgusrimg                            u:object_r:vendor_file:s0

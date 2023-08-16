@@ -1,0 +1,2 @@
+# MSLg
+vendor.xiaomi.mslg.keeper::IMSLgKeeper       u:object_r:hal_mslgkeeper_hwservice:s0

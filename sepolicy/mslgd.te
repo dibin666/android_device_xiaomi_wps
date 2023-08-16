@@ -1,0 +1,16 @@
+type mslgd, domain;
+type mslgd_exec, file_type, exec_type, vendor_file_type;
+
+allow mslgd mslgd_exec:file entrypoint;
+allow mslgd block_device:dir { ioctl search };
+allow mslgd init:unix_stream_socket connectto;
+allow mslgd loop_device:blk_file { ioctl open read write };
+allow mslgd property_socket:sock_file write;
+allow mslgd property_socket:sock_file { write };
+allow mslgd mslg_rootfs_file:dir search;
+allow mslgd vendor_mslg_prop:file { getattr map open read };
+allow mslgd vendor_mslg_prop:property_service set;
+allow mslgd vendor_toolbox_exec:file execute_no_trans;
+allow mslgd loop_control_device:chr_file { ioctl open read write };
+allow mslgd vendor_mslg_prop:file read;
+allow mslgd vendor_toolbox_exec:file execute_no_trans;

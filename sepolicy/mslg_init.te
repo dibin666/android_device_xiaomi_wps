@@ -1,0 +1,9 @@
+type mslg_init, domain;
+type mslg_init_exec, file_type, exec_type, vendor_file_type;
+type_transition init mslg_init_exec:process mslg_init;
+
+allow init mslg_init_exec:file { read getattr map execute open };
+allow init mslg_init:process { transition };
+allow mslg_init mslg_init_exec:file { read getattr map execute open entrypoint };
+dontaudit init mslg_init:process { noatsecure };
+allow init mslg_init:process { siginh rlimitinh };

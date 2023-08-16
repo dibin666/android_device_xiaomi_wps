@@ -1,0 +1,16 @@
+# mslgd
+type_transition init mslgd_exec:process mslgd;
+
+allow init mslgd:process { transition rlimitinh siginh };
+allow init mslgd_exec:file { read getattr map execute open execute };
+dontaudit init mslgd:process { noatsecure };
+
+# mslg_init
+type_transition init mslg_init_exec:process mslg_init;
+
+allow init mslg_init_exec:file { read getattr map execute open };
+allow init mslg_init:process { transition };
+allow init mslg_init:process { siginh rlimitinh };
+dontaudit init mslgd:process { noatsecure rlimitinh siginh };
+
+allow hal_camera_default vendor_mslg_prop:file { getattr map open };

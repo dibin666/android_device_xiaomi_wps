@@ -1,0 +1,40 @@
+init_daemon_domain(mslg_app)
+
+type mslg_app, domain;
+type mslg_app_exec, file_type, exec_type, vendor_file_type;
+type_transition mslg_app tmpfs:file appdomain_tmpfs;
+
+allow mslg_app mslg_rootfs_file:sock_file { write create getattr setattr unlink rename };
+allow mslg_app mslg_rootfs_file:file { ioctl read write create getattr setattr lock append map unlink link rename open watch };
+allow mslg_app mslg_rootfs_file:fifo_file { read write create unlink open };
+allow mslg_app mslg_rootfs_file:dir { read write create getattr setattr open watch add_name remove_name search rmdir };
+allow mslg_app mslg_rootfs_file:file { read getattr };
+allow mslg_app system_linker_exec:file { execute_no_trans };
+allow mslg_app trace_data_file:file { read getattr };
+allow mslg_app mnt_media_rw_file:dir { search };
+allow mslg_app servicemanager:service_manager { list };
+allow mslg_app audioserver_service:service_manager { find };
+allow mslg_app cameraserver_service:service_manager { find };
+allow mslg_app drmserver_service:service_manager { find };
+allow mslg_app mediaserver_service:service_manager { find };
+allow mslg_app mediaextractor_service:service_manager { find };
+allow mslg_app mediametrics_service:service_manager { find };
+allow mslg_app mediadrmserver_service:service_manager { find };
+allow mslg_app nfc_service:service_manager { find };
+allow mslg_app radio_service:service_manager { find };
+allow mslg_app app_api_service:service_manager { find };
+allow mslg_app vr_manager_service:service_manager { find };
+allow mslg_app gpu_service:service_manager { find };
+allow mslg_app gpuservice:binder { call transfer };
+allow mslg_app activity_service:service_manager find;
+allow mslg_app game_service:service_manager find;
+allow mslg_app netstats_service:service_manager find;
+allow mslg_app tmpfs:file { execute map read write };
+allow mslg_app zygote:unix_stream_socket getopt;
+
+dontaudit mslg_app tmpfs:file { execute map read write };
+dontaudit mslg_app rs:process { noatsecure };
+dontaudit mslg_app net_dns_prop:file { read };
+dontaudit mslg_app proc_stat:file { read };
+dontaudit mslg_app proc_vmstat:file { read };
+dontaudit mslg_app proc_uptime:file { read };

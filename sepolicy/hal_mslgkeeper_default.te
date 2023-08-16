@@ -1,0 +1,19 @@
+type hal_mslgkeeper_default, domain;
+type hal_mslgkeeper_default_exec, exec_type, vendor_file_type, file_type;
+
+type vendor_mslg_prop, property_type, vendor_property_type, vendor_public_property_type;
+
+type mslg_rootfs_file, file_type, data_file_type, mlstrustedobject;
+
+allow hal_mslgkeeper_default vendor_mslg_prop:file { read getattr map open };
+allow hal_mslgkeeper_default property_socket:sock_file { write };
+allow hal_mslgkeeper_default init:unix_stream_socket { connectto };
+allow hal_mslgkeeper_default vendor_mslg_prop:property_service { set };
+allow hal_mslgkeeper_default vendor_mslg_prop:file { read getattr map open };
+allow hal_mslgkeeper_default mslg_rootfs_file:file { read getattr open };
+allow hal_mslgkeeper_default mslg_rootfs_file:dir { read getattr open search };
+
+allow hwservicemanager hal_mslgkeeper_default:binder { call transfer };
+allow hwservicemanager hal_mslgkeeper_default:dir { search };
+allow hwservicemanager hal_mslgkeeper_default:file { read map open };
+allow hwservicemanager hal_mslgkeeper_default:process { getattr };
