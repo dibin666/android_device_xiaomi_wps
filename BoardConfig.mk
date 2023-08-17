@@ -1,3 +1,6 @@
+# HIDL
+DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE += device/xiaomi/wps/compatibility_matrix.xml
+
 # Kernel
 BOARD_KERNEL_CMDLINE += androidboot.selinux=permissive
 
