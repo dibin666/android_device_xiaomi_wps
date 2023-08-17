@@ -6,6 +6,10 @@ PRODUCT_SOONG_NAMESPACES += \
 PRODUCT_PACKAGES += \
     libext2_uuid.vendor
 
+# HIDL
+DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE += \
+    device/xiaomi/wps/compatibility_matrix.xml
+
 # MSLgRootfs
 PRODUCT_PACKAGES += \
     losetup.sh \
