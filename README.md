@@ -7,3 +7,9 @@
 ```
 $(call inherit-product-if-exists, device/xiaomi/wps/config.mk)
 ```
+
+3. Inherit it from `BoardConfig.mk` in device tree:
+
+```
+include device/xiaomi/wps/BoardConfig.mk
+```
