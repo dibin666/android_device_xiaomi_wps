@@ -21,9 +21,5 @@ PRODUCT_VENDOR_PROPERTIES += \
     ro.vendor.mslg.rootfs.version=rootfs-23.07.28.tgz \
     sys.mslg.available=1
 
-# Sepolicy
-BOARD_VENDOR_SEPOLICY_DIRS += \
-    device/xiaomi/wps/sepolicy
-
 # Inherit the proprietary files
 $(call inherit-product, vendor/xiaomi/wps/wps-vendor.mk)
