@@ -22,7 +22,7 @@ PRODUCT_PACKAGES += \
 
 # Properties
 PRODUCT_VENDOR_PROPERTIES += \
-    ro.vendor.mslg.rootfs.version=rootfs-23.07.28.tgz \
+    ro.vendor.mslg.rootfs.version=rootfs-23.08.22.tgz \
     sys.mslg.available=1
 
 # Inherit the proprietary files
